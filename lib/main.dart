@@ -39,7 +39,6 @@ class _HomeState extends State<Home> {
     "Shopping",
     "Programmation"
   ];
-  List<bool> selected = [false, false, false, false, false, false, false];
   List<String> selectedItems = [];
   @override
   Widget build(BuildContext context) {
