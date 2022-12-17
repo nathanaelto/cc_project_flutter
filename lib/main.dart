@@ -43,15 +43,22 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.deepPurpleAccent,
       body: SafeArea(
+        bottom: false,
         child: Column(
           children: [
-            Header(
-              selected: selectedItems,
+            Expanded(
+              flex: 2,
+              child: Header(
+                selected: selectedItems,
+              ),
             ),
-            Footer(
-              items: items,
-              onSelectedChange: _onItemChange,
+            Expanded(
+              child: Footer(
+                items: items,
+                onSelectedChange: _onItemChange,
+              ),
             ),
           ],
         ),

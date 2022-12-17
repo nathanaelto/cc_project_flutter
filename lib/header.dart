@@ -8,35 +8,32 @@ class Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      flex: 2,
-      child: Container(
-        width: double.maxFinite,
-        color: Colors.deepPurpleAccent,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Padding(
-              padding: EdgeInsets.all(16.0),
-              child: Text(
-                "Vos choix :",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 45,
-                  fontWeight: FontWeight.bold,
-                ),
+    return Container(
+      width: double.maxFinite,
+      color: Colors.deepPurpleAccent,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Padding(
+            padding: EdgeInsets.all(16.0),
+            child: Text(
+              "Vos choix :",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 45,
+                fontWeight: FontWeight.bold,
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Wrap(
-                spacing: 10,
-                runSpacing: 10,
-                children: _buildItems(),
-              ),
-            )
-          ],
-        ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Wrap(
+              spacing: 10,
+              runSpacing: 10,
+              children: _buildItems(),
+            ),
+          )
+        ],
       ),
     );
   }
