@@ -1,45 +1,30 @@
 import 'package:flutter/material.dart';
 
-typedef OnSelectedChange = void Function(String item, bool selected);
-
-class ChoiceItem extends StatefulWidget {
+class ChoiceItem extends StatelessWidget {
   final String itemText;
-  final OnSelectedChange? onTap;
-  const ChoiceItem({Key? key, required this.itemText, this.onTap})
+  final bool selected;
+  const ChoiceItem({Key? key, required this.itemText, this.selected = false})
       : super(key: key);
 
   @override
-  State<ChoiceItem> createState() => _ChoiceItemState();
-}
-
-class _ChoiceItemState extends State<ChoiceItem> {
-  bool _selected = false;
-  @override
   Widget build(BuildContext context) {
-    return TextButton(
-      onPressed: widget.onTap == null ? null : _onTap,
-      style: TextButton.styleFrom(
-        backgroundColor: _selected ? Colors.amber : Colors.grey.shade300,
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(10),
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: const BorderRadius.all(
+          Radius.circular(20),
+        ),
+        color: selected ? Colors.amber : Colors.grey.shade300,
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Text(
+          itemText,
+          style: const TextStyle(
+            color: Colors.black,
+            fontSize: 18,
           ),
         ),
       ),
-      child: Text(
-        widget.itemText,
-        style: const TextStyle(
-          color: Colors.black,
-          fontSize: 18,
-        ),
-      ),
     );
-  }
-
-  void _onTap() {
-    setState(() {
-      _selected = !_selected;
-      widget.onTap?.call(widget.itemText, _selected);
-    });
   }
 }

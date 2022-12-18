@@ -57,7 +57,7 @@ class _HomeState extends State<Home> {
             Expanded(
               child: Footer(
                 items: items,
-                onSelectedChange: _onItemChange,
+                onSelectedListChange: _onSelectedListChange,
               ),
             ),
           ],
@@ -66,13 +66,9 @@ class _HomeState extends State<Home> {
     );
   }
 
-  void _onItemChange(String item, bool isSelected) {
+  void _onSelectedListChange(List<String> selectedItems) {
     setState(() {
-      if (isSelected) {
-        selectedItems.add(item);
-      } else {
-        selectedItems.remove(item);
-      }
+      this.selectedItems = selectedItems;
     });
   }
 
